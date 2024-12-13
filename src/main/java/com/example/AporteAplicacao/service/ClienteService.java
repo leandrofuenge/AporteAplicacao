@@ -1,4 +1,4 @@
-package com.example.AporteAplicacao.services;
+package com.example.AporteAplicacao.service;
 
 import com.example.AporteAplicacao.entity.Cliente;
 import com.example.AporteAplicacao.repository.ClienteRepository;

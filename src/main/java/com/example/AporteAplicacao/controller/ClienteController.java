@@ -1,7 +1,8 @@
-package com.example.AporteAplicacao.controllers;
+package com.example.AporteAplicacao.controller;
 
 import com.example.AporteAplicacao.entity.Cliente;
-import com.example.AporteAplicacao.services.ClienteService;
+import com.example.AporteAplicacao.service.ClienteService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
