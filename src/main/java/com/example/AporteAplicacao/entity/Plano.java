@@ -2,7 +2,7 @@ package com.example.AporteAplicacao.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +17,12 @@ public class Plano {
     private String descricao;
     private Double rentabilidade;
     private String regras;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente; // Cliente associado ao plano
+
+    private LocalDateTime dataContratacao; // Data de contratação do plano
 
     // Construtores
     public Plano() {}
@@ -69,6 +75,22 @@ public class Plano {
         this.regras = regras;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public LocalDateTime getDataContratacao() {
+        return dataContratacao;
+    }
+
+    public void setDataContratacao(LocalDateTime dataContratacao2) {
+        this.dataContratacao = dataContratacao2;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -90,21 +112,8 @@ public class Plano {
                 ", descricao='" + descricao + '\'' +
                 ", rentabilidade=" + rentabilidade +
                 ", regras='" + regras + '\'' +
+                ", cliente=" + cliente +
+                ", dataContratacao=" + dataContratacao +
                 '}';
     }
-
-	public void setCliente(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public Cliente getCliente() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void setDataContratacao(Date date) {
-		// TODO Auto-generated method stub
-		
-	}
 }

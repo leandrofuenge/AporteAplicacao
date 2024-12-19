@@ -26,6 +26,12 @@ public class PlanoController {
         }
     }
 
+    
+    
+    
+    
+    
+    
     @PostMapping("/contratar")
     public ResponseEntity<String> contratarPlano(@RequestParam String cpf, @RequestBody Plano plano) {
         try {
@@ -38,14 +44,28 @@ public class PlanoController {
         }
     }
 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @DeleteMapping("/resgatar")
     public ResponseEntity<String> resgatarPlano(@RequestParam String cpf, @RequestBody Plano plano) {
         try {
             planoService.resgatarPlano(cpf, plano);
             return new ResponseEntity<>("Plano resgatado com sucesso!", HttpStatus.OK);
         } catch (IllegalArgumentException e) {
+            // Log de erro para depuração
+            System.err.println("Erro ao resgatar plano: " + e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
+            // Log de erro para depuração
+            System.err.println("Erro inesperado: " + e.getMessage());
             return new ResponseEntity<>("Erro ao resgatar o plano.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
